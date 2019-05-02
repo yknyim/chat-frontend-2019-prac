@@ -1,16 +1,18 @@
-import React from 'react'
+import React from 'react';
 
 function Chatform({text, handleChange, handleSend}) {
     return (
         <div>
-            <form onSubmit={handleSend}>
+            <form 
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    handleSend();
+                }}>
                 <input 
                     value={text}
                     onChange={handleChange}
                 />
-                <button 
-                    onClick={handleSend}
-                >Send</button>
+                <button>Send</button>
             </form>
         </div>
     );
